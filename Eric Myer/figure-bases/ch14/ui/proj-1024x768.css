@@ -1,0 +1,6 @@
+body {width: 874px; height: 769px; padding: 0 0 0 150px; font-size: 33px;}
+h1 {height: 60px; padding: 46px 0 0;}
+h1#title {border-top: 106px solid black;}
+div#sidebar {width: 150px;
+  background: #669 url(1024x768.jpg) top left no-repeat fixed;}
+div#event {width: 120px;}

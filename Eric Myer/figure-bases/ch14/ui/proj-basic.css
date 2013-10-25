@@ -1,0 +1,32 @@
+body {margin: 0;}
+h1#title, h2#subtitle, h3.credit, h4.affil {text-align: center; padding: 0;
+  background: transparent; padding: 0 1em;}
+h1#title {font-size: 200%; background: transparent;
+  height: auto; margin: 0 0 1em; padding: 2.5em 1.5em 0 0; color: black;}
+h2#subtitle {font-size: 100%;}
+h3.credit {font-size: 90%; font-weight: bolder; padding: 0 3.1em 0 0;}
+h4.affil {font-size: 75%; font-weight: normal; padding: 0 3.5em 0 0;}
+h1 {page-break-before: always; color: #FFF;
+  background: #000; padding: 0; margin: 0;
+  line-height: 0.85em; font-family: sans-serif;}
+h1:before {content: "";}
+ul {padding: 1.5em 2.5em 0 1em; margin: 0;}
+li {margin-bottom: 0.66em;}
+ul ul {padding: 0 0.5em 0.2em 2em;}
+ul ul li {list-style: square; font-size: 95%; margin-bottom: 0; color: #111;}
+pre, code {font-weight: bold; color: #556; font-size: 80%;}
+.extra {display: none;}
+.compare {margin: 2em 1em 0; background: #444; font-size: 0.8em;}
+
+div#sidebar {position: fixed; top: 0; left: 0; height: 100%;
+  padding: 0; margin: 0;}
+div#event {position: fixed; z-index: 10; top: 91%; left: 0;
+  padding: 0.66em 0.25em; margin: 0;
+  border: 1px solid #669; border-width: 1px 1px 1px 0;
+  background: #99C; color: #669;
+  text-align: center; font: 9px/10px Verdana, sans-serif;
+  letter-spacing: -1px;}
+div#runhead {position: fixed; z-index: 100; top: 0; right: 0; left: 80%; 
+  padding: 0.2em 0.5em 0.1em 0; margin: 0;
+  color: #666; background: #333 url(runbg.jpg) bottom left no-repeat fixed;
+  letter-spacing: 1px; font: bold italic 0.5em Arial, sans-serif; text-align: right;}

@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+			"http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<title>Minimal Markup, Surprising Style</title>
+<link rel="stylesheet" href="ui/basic.css" type="text/css" media="all">
+<link rel="stylesheet" href="ui/screen.css" type="text/css" media="screen">
+<link rel="stylesheet" href="ui/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="ui/proj-basic.css" type="text/css" media="projection">
+<link rel="stylesheet" href="ui/proj-1024x768.css" type="text/css" media="projection">
+<link rel="stylesheet" href="ui/proj-800x600.css" type="text/css" media="projection0">
+</head>
+<body>
+
+
+<h1 id="title">Minimal Markup, Surprising Style</h2>
+<h3 class="credit">Eric A. Meyer</h3>
+<div id="sidebar">
+<div id="event">
+CSS:TDG<br>O'Reilly &amp; Associates
+</div>
+</div>
+<div id="runhead">Minimal Markup, Surprising Style</div>
+
+
+<h2>(Re)stating some truths</h2>
+<ul>
+<li>CSS is NOT a pixel-fidelity presentation language!
+<li>The reader can always trump the designer
+<li>Use structural (X)HTML elements when you can
+<li>Tables are okay, but use them sparingly
+<li>Write CSS that's readable to you
+</ul>
+
+<h2>Where do we stand?</h2>
+<ul>
+<li>Basic font and color controls are solid</li>
+<li>Layout and positioning is pretty firm, but gets shaky at the edges</li>
+<li>IE6/Win and Opera 7 join IE5/Mac and Gecko browsers in having "DOCTYPE switching"</li>
+<li>Improvements are coming all the time</li>
+<li>Old browsers can get content with minimal (or zero!) style</li>
+</ul>
+
+<h2>Tripping the list fantastic</h2>
+<ul>
+<li>Navbars, toolbars, sidebars&mdash;they all have one thing in common: they're collections of links</li>
+<li>We can represent such a collection as a list and style it</li>
+<li>With this simple structure, we have a lot of presentational flexibility</li>
+<li>Whether the list is ordered or not is up to you; unordered is more likely the sensible choice</li>
+</ul>
+<pre class="extra">
+&lt;ul id="navigation"&gt;
+&lt;li&gt;&lt;a href="index.html"&gt;WidgetCo Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="products.html"&gt;Products&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="services.html"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="fun.html"&gt;Widgety Fun!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="support.html"&gt;Support&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="about.html" id="current"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<h2>Making a sidebar</h2>
+<ul>
+<li>By removing the bullets and indentation, we have what looks like break-separated text</li>
+<li>We can get a lot done just by styling the <code>li</code> elements</li>
+<li>Separators are a breeze, and you can cap the list using the <code>ul</code> element</li>
+<li>It can be a panel, an open list, almost anything you want</li>
+</ul>
+<pre class="extra">
+/* simple separators */
+#navigation {padding: 0; margin: 0;
+  font: bold 12px Verdana, sans-serif;
+  border-bottom: 1px solid gray; width: 13em;}
+#navigation li {list-style: none; margin: 0; padding: 0.25em;
+  border-top: 1px solid gray;}
+#navigation li a {text-decoration: none;}
+</pre>
+<pre class="extra">
+/* panelize */
+#navigation {padding: 1px; margin: 0;
+  font: bold 12px Verdana, sans-serif;
+  border: 2px solid; border-color: #AAA #EEE #EEE #AAA;
+  background: #CCC; width: 13em;}
+#navigation li {list-style: none; margin: 0; padding: 0.25em 1em;
+  border: 1px solid; border-color: #FFF #AAA #AAA #FFF;
+  text-align: center;}
+#navigation li a {text-decoration: none;}
+#navigation li a:link {color: black;}
+#navigation li a:visited {color: gray;}
+</pre>
+<pre class="extra">
+/* highlighting and border effects */
+#navigation {padding: 0 1px 1px; margin: 0;
+  font: bold 12px Verdana, sans-serif;
+  background: gray; width: 13em;}
+#navigation li {list-style: none; margin: 0; border-top: 1px solid gray;
+  text-align: left;}
+#navigation li a {display: block; padding: 0.25em 0.5em 0.25em 0.75em;
+  border-left: 1em solid #AAB; background: #CCD;
+  text-decoration: none;}
+#navigation li a:link {color: #448;}
+#navigation li a:visited {color: #667;}
+#navigation li a:hover {border-color: #FE3; color: #FFF; background: #332;}
+</pre>
+
+<h2>Making a navbar</h2>
+<ul>
+<li>It's a little trickier, but you can turn a list into a horizontal navbar</li>
+<li>Instead of blocking out links, we need to make the list itself inline</li>
+<li>Now we can visually separate the links with borders</li>
+<li>Watch out for how inline elements behave in different browsers, especially whitespace between them</li>
+<li>With some creative styling, we can even create a "tabbed" interface</li>
+</ul>
+<pre class="extra">
+/* simple inlining of previous example */
+#navigation {padding: 0 1px 1px; margin: 0;
+  font: bold 12px Verdana, sans-serif;}
+#navigation li {list-style: none; margin: 0; border-top: 1px solid gray;
+  display: inline;}
+#navigation li a {padding: 0.25em 0.5em 0.25em 0.75em;
+  border-left: 1em solid #AAB; background: #CCD;
+  text-decoration: none;}
+#navigation li a:link {color: #448;}
+#navigation li a:visited {color: #667;}
+#navigation li a:hover {border-color: #FE3; color: #FFF; background: #332;}
+</pre>
+<pre class="extra">
+/* traditional navbar */
+#navigation {padding: 3px 0; margin: 0;
+  border: 1px solid #BBC; background: #DDE;
+  font: bold 12px Verdana, sans-serif;}
+#navigation li {list-style: none; margin: 0;
+  display: inline;}
+#navigation li a {padding: 3px 0.5em;
+  border-right: 1px solid #BBC;
+  text-decoration: none;}
+#navigation li a:link {color: #448;}
+#navigation li a:visited {color: #667;}
+#navigation li a:hover {border-color: #88C; color: #000; background: #AAE;}
+</pre>
+<pre class="extra">
+/* tabbed styles */
+#navigation {padding: 3px 0; margin: 0;
+  border-bottom: 1px solid #778;
+  font: bold 12px Verdana, sans-serif;}
+#navigation li {list-style: none; margin: 0;
+  display: inline;}
+#navigation li a {padding: 3px 0.5em; margin-left: 3px;
+  border: 1px solid #778; border-bottom: none;
+  background: #DDE;
+  text-decoration: none;}
+#navigation li a:link {color: #448;}
+#navigation li a:visited {color: #667;}
+#navigation li a:hover {color: #000; background: #AAE;
+  border-color: #227;}
+</pre>
+<pre class="extra">
+/* "current tab" style */
+#navigation li a#current {background: white; border-bottom: 1px solid white;}
+</pre>
+
+<h2>Another quick effect</h2>
+<ul>
+<li>Let's go back to the panel and add a heading, inline it, shift it up a bit, and flip some styles around</li>
+<li>By making the heading inline, we end up "shrink-wrapping" the text</li>
+<li>Adding a background color obscures pieces of other elements</li>
+<li>Relative positioning moves the element out of its usual place</li>
+<li>Some changes to backgrounds, borders, and text alignment, and we have a whole new menu look</li>
+</ul>
+<pre class="extra">
+&lt;ul id="navigation"&gt;
+&lt;li id="title"&gt;&lt;h4&gt;Navigation&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="index.html"&gt;WidgetCo Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="products.html"&gt;Products&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="services.html"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="fun.html"&gt;Widgety Fun!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="support.html"&gt;Support&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="about.html" id="current"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<pre class="extra">
+#navigation {padding: 0; margin: 2em 0 0;
+  font: bold 12px Verdana, sans-serif;
+  background: white; width: 11em;
+  border: 1px solid gray; border-width: 1px 1px 0 0;}
+#navigation li {list-style: none; padding: 0; margin: 0.5em 0;
+  text-align: right;}
+#navigation li a {padding-right: 0.5em; border-bottom: 1px solid gray;
+  text-decoration: none;}
+#navigation li a:link {color: #448;}
+#navigation li a:visited {color: #667;}
+#navigation li a:hover {border-color: red; color: #000;}
+#navigation h4 {display: inline; margin: 0; padding: 1px 0.33em;
+  position: relative; top: -1em; font-size: 1.1em;
+  background: white; border: 1px solid gray;}
+#navigation #title {text-align: left;}
+</pre>
+
+<h2>So what's the catch?</h2>
+<ul>
+<li>Maybe none&mdash;it depends on your visitor demographics</li>
+<li>NN4.x is not going to respond well to the inline list technique, and IE4 isn't likely to be much happier</li>
+<li>If you hide the styles from them, they'll just render an unordered list</li>
+<li>That could be okay, depending on how you place it on the page</li>
+<li>Weigh the old-browser situation against the accessibility and efficiency wins</li>
+</ul>
+
+<h2>Example: foxsearchlight.com</h2>
+<ul>
+<li>Created by Jeffrey Zeldman and Hillman Curtis</li>
+<li>Uses transitional design and Flash</li>
+<li>Greatly improved download and layout speed</li>
+<li>Changes to layout and appearance are much easier</li>
+</ul>
+
+<h2>Example: NEOP</h2>
+<ul>
+<li>The JPL Near Earth Object Program site re-imagined</li>
+<li>All tables were removed, although a few <code>div</code>s remain</li>
+<li>Navigation links are now at the bottom of the source</li>
+<li><em>Two</em> backgrounds are used and stay in place</li>
+</ul>
+
+<h2>Example: wired.com</h2>
+<ul>
+<li>In October 2002, wired.com redesigned using no tables at all</li>
+<li>CSS positioning is used for basic layout</li>
+<li>Daily color themes are handled with stylesheet changes</li>
+<li>Turn off CSS (or visit with a non-CSS browser) and you get just the content</li>
+<li>Cellphone and handheld browsers get the non-CSS version</li>
+</ul>
+
+<h2>Example: Netscape DevEdge</h2>
+<ul>
+<li>In February 2003, DevEdge went from transitional design to fully positioned layout</li>
+<li>CSS makes subtle but useful effects very easy to accomplish</li>
+<li>"Wireframe" layout is managed by its own stylesheet; themes are in separate stylesheets</li>
+<li>Menus based almost entirely on CSS, and don't require JavaScript in some browsers</li>
+<li>Print-media styles automatically insert link URLs into text for advanced browsers</li>
+</ul>
+
+<h2>How Far Can We Go?</h2>
+<ul>
+<li>CSS looks simple, and in a basic sense it is</li>
+<li>It's also highly complex and gives rise to surprising effects
+<ul>
+<li>Flowing text along a curve</li>
+<li>Translucency effects</li>
+<li>Popups menus without JavaScript</li>
+</ul>
+</li>
+<li>We still don't know the limits of CSS-driven design</li>
+</ul>
+
+<h2>And last</h2>
+<ul>
+<li>Sophisticated layout doesn't mean complicated structure!</li>
+<li>You can offer a less rich but still readable site to v4 browsers</li>
+<li>Alternate and user styles can mean complete redesigns without markup changes</li>
+<li>Stronger structure means wireless-friendly and accessible design</li>
+<li>If you get creative enough, there are deeply surprising possibilities</li>
+</ul>
+
+</body>
+</html>

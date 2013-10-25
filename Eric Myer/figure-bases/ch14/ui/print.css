@@ -1,0 +1,13 @@
+body {font-size: 12pt;}
+* {color: black;}
+h1#title {margin-top: 0;}
+h2#subtitle {margin-bottom: 1em;}
+h4.affil {margin-bottom: 0.5em;}
+h1 {border-top: 2pt solid gray; border-bottom: 1px dotted silver;
+  page-break-after: avoid;}
+ul {page-break-inside: avoid;}
+.extra {background: transparent !important;}
+div.extra, pre.extra, .example {font-size: 10pt; color: #333;}
+ul.extra a {font-weight: bold;}
+p.example {display: none;}
+#runhead {display: none;}
